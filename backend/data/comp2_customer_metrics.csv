@@ -1,0 +1,31 @@
+Metric,Month,Year,Value
+Customer Acquisition Rate (%),6,2024,170
+Customer Acquisition Rate (%),5,2024,135
+Customer Acquisition Rate (%),4,2024,130
+Customer Acquisition Rate (%),6,2023,150
+Customer Acquisition Rate (%),5,2023,140
+Customer Acquisition Rate (%),4,2023,135
+Customer Retention Rate (%),6,2024,92%
+Customer Retention Rate (%),5,2024,91%
+Customer Retention Rate (%),4,2024,90%
+Customer Retention Rate (%),6,2023,89%
+Customer Retention Rate (%),5,2023,88%
+Customer Retention Rate (%),4,2023,87%
+Customer Lifetime Value (CLV),6,2024,"$3,000"
+Customer Lifetime Value (CLV),5,2024,"$2,900"
+Customer Lifetime Value (CLV),4,2024,"$2,850"
+Customer Lifetime Value (CLV),6,2023,"$2,700"
+Customer Lifetime Value (CLV),5,2023,"$2,650"
+Customer Lifetime Value (CLV),4,2023,"$2,600"
+Churn Rate (%),6,2024,6%
+Churn Rate (%),5,2024,7%
+Churn Rate (%),4,2024,8%
+Churn Rate (%),6,2023,8%
+Churn Rate (%),5,2023,9%
+Churn Rate (%),4,2023,10%
+Customer Satisfaction Score (CSAT),6,2024,4.8
+Customer Satisfaction Score (CSAT),5,2024,4.6
+Customer Satisfaction Score (CSAT),4,2024,4.5
+Customer Satisfaction Score (CSAT),6,2023,4.4
+Customer Satisfaction Score (CSAT),5,2023,4.3
+Customer Satisfaction Score (CSAT),4,2023,4.2

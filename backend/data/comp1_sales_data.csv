@@ -1,0 +1,55 @@
+Date,Month,Year,Product Name,Category,Sales Quantity,Sales Revenue ($),Margin ($)
+2024-06-01,6,2024,Echo Dot,Electronics,350,300000,150000
+2024-06-01,6,2024,Kindle Paperwhite,Electronics,200,160000,80000
+2024-06-01,6,2024,Fire TV Stick,Electronics,150,120000,60000
+2024-06-01,6,2024,Gaming Laptop,Computers,300,280000,140000
+2024-06-01,6,2024,Ultrabook,Computers,250,230000,115000
+2024-06-01,6,2024,Chromebook,Computers,180,170000,85000
+2024-06-01,6,2024,Wireless Mouse,Accessories,500,100000,50000
+2024-06-01,6,2024,Mechanical Keyboard,Accessories,450,90000,45000
+2024-06-01,6,2024,Gaming Headset,Accessories,400,80000,40000
+2024-05-01,5,2024,Echo Dot,Electronics,340,290000,145000
+2024-05-01,5,2024,Kindle Paperwhite,Electronics,190,150000,75000
+2024-05-01,5,2024,Fire TV Stick,Electronics,140,110000,55000
+2024-05-01,5,2024,Gaming Laptop,Computers,290,270000,135000
+2024-05-01,5,2024,Ultrabook,Computers,240,220000,110000
+2024-05-01,5,2024,Chromebook,Computers,170,160000,80000
+2024-05-01,5,2024,Wireless Mouse,Accessories,480,96000,48000
+2024-05-01,5,2024,Mechanical Keyboard,Accessories,430,86000,43000
+2024-05-01,5,2024,Gaming Headset,Accessories,380,76000,38000
+2024-04-01,4,2024,Echo Dot,Electronics,320,280000,140000
+2024-04-01,4,2024,Kindle Paperwhite,Electronics,180,140000,70000
+2024-04-01,4,2024,Fire TV Stick,Electronics,130,100000,50000
+2024-04-01,4,2024,Gaming Laptop,Computers,280,260000,130000
+2024-04-01,4,2024,Ultrabook,Computers,230,210000,105000
+2024-04-01,4,2024,Chromebook,Computers,160,150000,75000
+2024-04-01,4,2024,Wireless Mouse,Accessories,460,92000,46000
+2024-04-01,4,2024,Mechanical Keyboard,Accessories,410,82000,41000
+2024-04-01,4,2024,Gaming Headset,Accessories,360,72000,36000
+2023-06-01,6,2023,Echo Dot,Electronics,300,270000,135000
+2023-06-01,6,2023,Kindle Paperwhite,Electronics,160,140000,70000
+2023-06-01,6,2023,Fire TV Stick,Electronics,130,100000,50000
+2023-06-01,6,2023,Gaming Laptop,Computers,280,260000,130000
+2023-06-01,6,2023,Ultrabook,Computers,230,210000,105000
+2023-06-01,6,2023,Chromebook,Computers,160,150000,75000
+2023-06-01,6,2023,Wireless Mouse,Accessories,460,92000,46000
+2023-06-01,6,2023,Mechanical Keyboard,Accessories,410,82000,41000
+2023-06-01,6,2023,Gaming Headset,Accessories,360,72000,36000
+2023-05-01,5,2023,Echo Dot,Electronics,280,260000,130000
+2023-05-01,5,2023,Kindle Paperwhite,Electronics,150,130000,65000
+2023-05-01,5,2023,Fire TV Stick,Electronics,120,90000,45000
+2023-05-01,5,2023,Gaming Laptop,Computers,270,250000,125000
+2023-05-01,5,2023,Ultrabook,Computers,220,200000,100000
+2023-05-01,5,2023,Chromebook,Computers,150,140000,70000
+2023-05-01,5,2023,Wireless Mouse,Accessories,440,88000,44000
+2023-05-01,5,2023,Mechanical Keyboard,Accessories,390,78000,39000
+2023-05-01,5,2023,Gaming Headset,Accessories,340,68000,34000
+2023-04-01,4,2023,Echo Dot,Electronics,260,240000,120000
+2023-04-01,4,2023,Kindle Paperwhite,Electronics,140,110000,55000
+2023-04-01,4,2023,Fire TV Stick,Electronics,110,80000,40000
+2023-04-01,4,2023,Gaming Laptop,Computers,260,240000,120000
+2023-04-01,4,2023,Ultrabook,Computers,210,190000,95000
+2023-04-01,4,2023,Chromebook,Computers,140,130000,65000
+2023-04-01,4,2023,Wireless Mouse,Accessories,420,84000,42000
+2023-04-01,4,2023,Mechanical Keyboard,Accessories,370,74000,37000
+2023-04-01,4,2023,Gaming Headset,Accessories,320,64000,32000

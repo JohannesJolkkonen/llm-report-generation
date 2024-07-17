@@ -1,0 +1,49 @@
+Date,Year,Month,Product/Service Name,Category,Sales Quantity,Sales Revenue ($),Margin ($)
+2024-06-01,2024,6,Solar Panels,Products,100,500000,100000
+2024-06-01,2024,6,Wind Turbines,Products,80,400000,80000
+2024-06-01,2024,6,Energy Storage System,Products,60,300000,60000
+2024-06-01,2024,6,Energy Consulting,Services,20,200000,40000
+2024-06-01,2024,6,Maintenance,Services,30,300000,60000
+2024-06-01,2024,6,Installation,Services,40,400000,80000
+2024-06-01,2024,6,Solar Panels,Products,90,450000,90000
+2024-06-01,2024,6,Wind Turbines,Products,70,350000,70000
+2024-06-01,2024,6,Energy Storage System,Products,55,275000,55000
+2024-05-01,2024,5,Energy Consulting,Services,18,180000,36000
+2024-05-01,2024,5,Maintenance,Services,28,280000,56000
+2024-05-01,2024,5,Installation,Services,38,380000,76000
+2024-05-01,2024,5,Solar Panels,Products,85,425000,85000
+2024-05-01,2024,5,Wind Turbines,Products,65,325000,65000
+2024-05-01,2024,5,Energy Storage System,Products,50,250000,50000
+2024-05-01,2024,5,Energy Consulting,Services,15,150000,30000
+2024-05-01,2024,5,Maintenance,Services,25,250000,50000
+2024-05-01,2024,5,Installation,Services,35,350000,70000
+2024-04-01,2024,4,Solar Panels,Products,95,475000,95000
+2024-04-01,2024,4,Wind Turbines,Products,75,375000,75000
+2024-04-01,2024,4,Energy Storage System,Products,65,325000,65000
+2024-04-01,2024,4,Energy Consulting,Services,20,200000,40000
+2024-04-01,2024,4,Maintenance,Services,30,300000,60000
+2024-04-01,2024,4,Installation,Services,40,400000,80000
+2023-06-01,2023,6,Solar Panels,Products,80,400000,80000
+2023-06-01,2023,6,Wind Turbines,Products,60,300000,60000
+2023-06-01,2023,6,Energy Storage System,Products,45,225000,45000
+2023-06-01,2023,6,Energy Consulting,Services,25,250000,50000
+2023-06-01,2023,6,Maintenance,Services,35,350000,70000
+2023-06-01,2023,6,Installation,Services,45,450000,90000
+2023-06-01,2023,6,Solar Panels,Products,75,375000,75000
+2023-06-01,2023,6,Wind Turbines,Products,55,275000,55000
+2023-06-01,2023,6,Energy Storage System,Products,40,200000,40000
+2023-05-01,2023,5,Energy Consulting,Services,22,220000,44000
+2023-05-01,2023,5,Maintenance,Services,32,320000,64000
+2023-05-01,2023,5,Installation,Services,42,420000,84000
+2023-05-01,2023,5,Solar Panels,Products,70,350000,70000
+2023-05-01,2023,5,Wind Turbines,Products,50,250000,50000
+2023-05-01,2023,5,Energy Storage System,Products,35,175000,35000
+2023-05-01,2023,5,Energy Consulting,Services,18,180000,36000
+2023-05-01,2023,5,Maintenance,Services,28,280000,56000
+2023-05-01,2023,5,Installation,Services,38,380000,76000
+2023-04-01,2023,4,Solar Panels,Products,75,375000,75000
+2023-04-01,2023,4,Wind Turbines,Products,55,275000,55000
+2023-04-01,2023,4,Energy Storage System,Products,40,200000,40000
+2023-04-01,2023,4,Energy Consulting,Services,20,200000,40000
+2023-04-01,2023,4,Maintenance,Services,30,300000,60000
+2023-04-01,2023,4,Installation,Services,40,400000,80000

@@ -1,0 +1,50 @@
+1. **Customer Service Enhancement for Energy Company**
+   - Supported ~1000 customer service agents with improved information retrieval and LLM-powered Q&A.
+   - Prototyped several smaller GenAI use-cases, such as prioritizing inbound customer messages by urgency and churn risk.
+   - Analyzed customer call transcripts to identify common issues and improve service strategies.
+
+2. **Marketing Content Analysis for Media Company**
+   - Used language models to analyze and categorize marketing articles for themes and target audiences.
+   - Conducted similar analysis on internal strategy documents to ensure alignment with higher-level objectives.
+   - Developed a dashboard for visualizing trends and insights from the analyzed content.
+
+3. **Predictive Analytics for Healthcare**
+   - Created a predictive analytics platform to enhance diagnosis accuracy and treatment plans.
+   - Developed algorithms for early disease detection and personalized treatment recommendations.
+   - Integrated patient history data for comprehensive analysis and better healthcare outcomes.
+
+4. **Financial Forecasting and Risk Management**
+   - Built an AI model for financial forecasting and risk management for a large investment firm.
+   - Integrated real-time data analysis to identify market trends and assess risks.
+   - Optimized investment strategies through predictive insights and data-driven decision-making.
+   - Case study link: 
+
+5. **Retail Customer Insights and Personalization**
+   - Designed a customer insights system to personalize marketing and product recommendations.
+   - Analyzed purchasing behavior and customer feedback to enhance the shopping experience.
+   - Implemented machine learning models to predict customer preferences and trends.
+
+6. **Automated Legal Document Review**
+   - Developed an AI-powered system to automate the review and categorization of legal documents.
+   - Integrated NLP to identify key clauses, risks, and compliance issues.
+   - Enhanced the efficiency of legal processes by reducing manual review time.
+
+7. **Smart Inventory Management for E-commerce**
+   - Implemented an AI-driven inventory management system to optimize stock levels and reduce waste.
+   - Analyzed sales data and seasonal trends to predict demand and automate restocking.
+   - Improved supply chain efficiency through real-time inventory tracking and forecasting.
+
+8. **AI-Powered Fraud Detection for Banking**
+   - Built a machine learning model for real-time fraud detection in banking transactions.
+   - Developed anomaly detection algorithms to identify suspicious activities.
+   - Enhanced security measures to reduce financial losses and protect customer data.
+
+9. **Voice-Activated Virtual Assistant for Telecom**
+   - Created a voice-activated virtual assistant to provide instant customer support.
+   - Implemented NLP and speech recognition to handle customer queries.
+   - Streamlined service processes and improved customer satisfaction through automated support.
+
+10. **Data-Driven Marketing Optimization for Consumer Goods**
+    - Developed a data analytics platform to optimize marketing campaigns.
+    - Used machine learning to analyze customer preferences and behavior.
+    - Tailored marketing strategies for maximum impact and increased ROI.
