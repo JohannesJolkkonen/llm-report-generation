@@ -31,14 +31,14 @@ Both the frontend and backend need to be running for the application to work.
 
 1. Navigate to the `/frontend` directory
 2. Install dependencies: `npm install`
-3. Fill in values in `sample.env`, and rename it to `.env`
+3. Fill in API-credentials in `sample.env`, and rename it to `.env`
 4. Start the react app: `npm start`
 
 ### Backend
 
 1. Navigate to the `/backend` directory
 2. Create a poetry virtual environment: `poetry install`
-3. Fill in credentials in `sample.env`, and rename it to `.env`
+3. Fill in API-credentials in `sample.env`, and rename it to `.env`
 4. Activate the virtual environment: `poetry shell`
 5. Start the FastAPI server: `uvicorn app:app --reload`
 
