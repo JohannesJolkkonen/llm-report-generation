@@ -1,3 +1,10 @@
+body, html {
+  font-family: 'Roboto', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
 .app {
   padding: 20px;
   font-family: Arial, sans-serif;
@@ -8,37 +15,15 @@
   gap: 20px;
 }
 
-.variations-panel {
-  width: 30%;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.variation-box {
-  padding: 15px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.variation-box:hover {
-  background-color: #f0f0f0;
-}
-
-.variation-box.selected {
-  background-color: #e0f7fa;
-  border-color: #2196F3;
-}
 
 .pdf-preview {
-  width: 70%;
+  width: 50%;
   border: 1px solid #ddd;
   padding: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-left: 10px;
 }
 
 .react-pdf__Document {
@@ -107,4 +92,5 @@ button {
 
 .fetch-button:hover {
   background-color: #007acc;
+  font-size: 20px
 }

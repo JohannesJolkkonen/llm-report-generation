@@ -4,7 +4,9 @@ import { pdfjs } from 'react-pdf';
 import { DocumentContents, Page } from './models/CustomDocument';
 import PdfPreview from './components/PdfPreview';
 import VariationsPanel from './components/VariationsPanel';
+import SelectorMenu from './components/SelectorMenu';
 import usePdfGeneration from './hooks/usePdfGeneration';
+import PdfPlaceholder from './components/PdfPlaceholder';
 import { fetchRetrievalData } from './utils/retrievalService';
 
 pdfjs.GlobalWorkerOptions.workerSrc = new URL(
@@ -17,9 +19,45 @@ const App: React.FC = () => {
   const [selectedVariations, setSelectedVariations] = useState<Record<string, number>>({});
   const [documentContents, setDocumentContents] = useState<DocumentContents | null>(null);
   const [isLoading, setIsLoading] = useState(false);
+  const [templatePath, setTemplatePath] = useState('');
+  const [selectedReportType, setSelectedReportType] = useState('');
+  const [selectedCompany, setSelectedCompany] = useState('Media & Electronics');
+  const [selectedDate, setSelectedDate] = useState('2024 / 06');
+  const [progress, setProgress] = useState<{ [page: number]: number }>({});
+  const [isFetchingComplete, setIsFetchingComplete] = useState(false);
+  const [totalPages, setTotalPages] = useState(0);
+  const [pdfRenderProgress, setPdfRenderProgress] = useState(0);
+  const [shouldGeneratePdf, setShouldGeneratePdf] = useState(false);
+
 
   const defaultPage: Page = { pageNumber: 0, tags: [] };
-  const defaultDocumentUrl = '/templates/sales_report_full.pdf';
+
+  
+  const handleReportTypeChange = (reportType: string) => {
+    setSelectedReportType(reportType);
+    if (reportType === 'Monthly Sales Report') {
+      setTemplatePath('temp/sales_report_full.pdf');
+    }
+    else if (reportType === 'Marketing Plan') {
+      setTemplatePath('templates/page_1_mplan.pdf');
+    }
+    else if (reportType === 'Quarterly Business Review') {
+      setTemplatePath('templates/page_1_qbr.pdf');
+    }
+    else {
+      setTemplatePath('');
+    }
+  };
+
+  const handleCompanyChange = (company: string) => {
+    setSelectedCompany(company);
+  };
+
+  const handleDateChange = (date: string) => {
+    console.log("date", date)
+    setSelectedDate(date);
+  };
+
 
   const {
     pdfBlobs,
@@ -27,10 +65,76 @@ const App: React.FC = () => {
     generatePdfVariations,
     getCurrentPdfBlob,
     isLoading: isGeneratingPdf,
-    variationsGenerated
-  } = usePdfGeneration(documentContents || { pages: [] }, currentPage, selectedVariations);
+    variationsGenerated,
+  } = usePdfGeneration(documentContents || { pages: [] }, currentPage, selectedVariations, setPdfRenderProgress);
 
+  const handleFetchAndRender = async () => {
+    setIsLoading(true);
+    setProgress({});
+    setIsFetchingComplete(false);
+    setTotalPages(0);
+    setPdfRenderProgress(0);
+    setShouldGeneratePdf(false);
+
+
+    const [year, month] = selectedDate.split('/').map(part => part.trim());
+    const eventSource = new EventSource(`http://localhost:8000/retrieval?year=${year}&month=${month}&department=${encodeURIComponent(selectedCompany)}`);
+    
+    eventSource.onmessage = (event) => {
+      const data = JSON.parse(event.data);
+      console.log("EventSource message:", data);
+    };
+
+    eventSource.addEventListener('init', (event) => {
+      const data = JSON.parse(event.data);
+      setTotalPages(data.total_pages);
+      setProgress(Object.fromEntries([...Array(data.total_pages)].map((_, i) => [i + 1, 0])));
+    });
   
+    eventSource.addEventListener('progress', (event) => {
+      const data = JSON.parse(event.data);
+      console.log("Progress event:", data);
+      if (data.page) {
+        setProgress(prev => ({
+          ...prev,
+          [data.page]: (data.tag / data.total_tags) * 100
+        }));
+      }
+    });
+  
+    eventSource.addEventListener('done', (event) => {
+      const data = JSON.parse(event.data) as DocumentContents;
+      console.log("EventSource done:", data);
+      setDocumentContents(data);
+
+      const initialSelectedVariations: Record<string, number> = {};
+      data.pages.forEach(page => {
+        page.tags.forEach(tag => {
+          initialSelectedVariations[tag.id] = 0;
+        });
+      });
+      setSelectedVariations(initialSelectedVariations);
+
+      setIsLoading(false);
+      setIsFetchingComplete(true);
+      setShouldGeneratePdf(true);
+      eventSource.close();
+    });
+  
+    eventSource.onerror = (error) => {
+      console.error('EventSource failed:', error);
+      setIsLoading(false);
+      eventSource.close();
+    };
+  };
+
+  useEffect(() => {
+    if (documentContents && isFetchingComplete && shouldGeneratePdf) {
+      generatePdfVariations();
+      setShouldGeneratePdf(false);
+    }
+  }, [documentContents, generatePdfVariations, isFetchingComplete, shouldGeneratePdf]);
+
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === 'ArrowLeft') {
@@ -48,41 +152,48 @@ const App: React.FC = () => {
     getCurrentPdfBlob();
   }, [getCurrentPdfBlob]);
 
-  const handleFetchDocument = async () => {
-    setIsLoading(true);
-    try {
-      const fetchedDocument = await fetchRetrievalData(2024, 6);
-      setDocumentContents(fetchedDocument);
-    } catch (error) {
-      console.error('Error fetching document:', error);
-    } finally {
-      setIsLoading(false);
-    }
-  };
   return (
     <div className="app">
-      <h1>Document Preview with Alternatives</h1>
+      <SelectorMenu
+        documentContents={documentContents}
+        selectedVariations={selectedVariations}
+        selectedReportType={selectedReportType}
+        selectedCompany={selectedCompany}
+        selectedDate={selectedDate}
+        onReportTypeChange={handleReportTypeChange}
+        onCompanyChange={handleCompanyChange}
+        onDateChange={handleDateChange}
+        onGenerateVariations={handleFetchAndRender}
+        isGeneratingPdf={isGeneratingPdf}
+        variationsGenerated={variationsGenerated}
+      />
       <div className="content-wrapper">
         <VariationsPanel
           isLoading={isLoading}
           isGeneratingPdf={isGeneratingPdf}
-          documentLoaded={!!documentContents}
-          setDocumentContents={setDocumentContents}
           currentPageData={documentContents?.pages[currentPage] || defaultPage}
           selectedVariations={selectedVariations}
           setSelectedVariations={setSelectedVariations}
-          generateVariations={generatePdfVariations}
+          handleFetchAndRender={handleFetchAndRender}
           variationsGenerated={variationsGenerated}
+          progress={progress}
+          totalPages={totalPages}
+          pdfRenderProgress={pdfRenderProgress}
         />
-        <PdfPreview 
-          iframeSrc={iframeSrc} 
-          defaultSrc={defaultDocumentUrl}
-          variationsGenerated={variationsGenerated}
-          pageNumber={currentPage + 1}
-        />
+        {isLoading || isGeneratingPdf ? (
+        <PdfPlaceholder message="Loading PDF preview..." />
+        ) : (
+          <PdfPreview 
+            iframeSrc={iframeSrc} 
+            defaultSrc={templatePath}
+            variationsGenerated={variationsGenerated}
+            pageNumber={currentPage + 1}
+          />
+        )}
       </div>
     </div>
   );
 };
+
 
 export default App;

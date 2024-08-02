@@ -6,6 +6,7 @@ interface Variation {
 interface Tag {
     id: string;
     title: string;
+    source: string;
     variations: Variation[];
 }
 

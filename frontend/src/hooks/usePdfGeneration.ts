@@ -5,7 +5,8 @@ import { renderAllCombinations, generatePdfKey } from '../utils/pdfUtils';
 const usePdfGeneration = (
   contents: DocumentContents,
   currentPage: number,
-  selectedVariations: Record<string, number>
+  selectedVariations: Record<string, number>,
+  setPdfRenderProgress: React.Dispatch<React.SetStateAction<number>>
 ) => {
   const [pdfBlobs, setPdfBlobs] = useState<Record<string, Blob>>({});
   const [isLoading, setIsLoading] = useState(false);
@@ -14,18 +15,24 @@ const usePdfGeneration = (
 
   const generatePdfVariations = useCallback(async () => {
     console.log('Generating variations');
-    if (variationsGenerated) return;
     setIsLoading(true);
+    setVariationsGenerated(false);
+    setPdfBlobs({}); // Clear existing blobs
+    
     try {
-      const allPdfBlobs = await renderAllCombinations(contents);
-      setPdfBlobs(prev => ({ ...prev, ...allPdfBlobs }));
+      const allPdfBlobs = await renderAllCombinations(contents, (progress) => {
+        console.log('PDF render progress:', progress);
+        setPdfRenderProgress(progress);
+      });
+      setPdfBlobs(allPdfBlobs);
       setVariationsGenerated(true);
     } catch (error) {
       console.error('Error generating variations:', error);
     } finally {
       setIsLoading(false);
+      setPdfRenderProgress(100); // Ensure it reaches 100% at the end
     }
-  }, [contents, variationsGenerated]);
+  }, [contents, setPdfRenderProgress]);
   
 
   const getCurrentPdfBlob = useCallback(() => {

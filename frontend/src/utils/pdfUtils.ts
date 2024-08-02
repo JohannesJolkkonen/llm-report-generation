@@ -1,5 +1,6 @@
 import { DocumentContents, ContentCombinations } from '../models/CustomDocument';
 import { renderDocumentPage, convertDocxToPdf } from './docxUtils';
+import pLimit from 'p-limit';
 
 export const generateVariationCombinations = (document: DocumentContents): ContentCombinations => {
     const result: ContentCombinations = {};
@@ -27,21 +28,42 @@ export const generateVariationCombinations = (document: DocumentContents): Conte
     return result;
 };
 
-export const renderAllCombinations = async (document: DocumentContents): Promise<Record<string, Blob>> => {
+export async function renderAllCombinations(
+  document: DocumentContents,
+  onProgress: (progress: number) => void
+): Promise<Record<string, Blob>> {
   const result: Record<string, Blob> = {};
   const combinations: ContentCombinations = generateVariationCombinations(document);
 
+  let totalCombinations = 0;
+  let completedCombinations = 0;
+
+  for (const pageCombinations of Object.values(combinations)) {
+    totalCombinations += pageCombinations.length;
+  }
+
+  const conversionPromises: Promise<void>[] = [];
+
   for (const [pageNumber, pageCombinations] of Object.entries(combinations)) {
     for (const combination of pageCombinations) {
-      const key = generatePdfKey(Number(pageNumber), combination, document);
-      const docxBlob = await renderDocumentPage(document, combination, Number(pageNumber));
-      const pdfBlob = await convertDocxToPdf(docxBlob);
-      result[key] = pdfBlob;
+      const conversionPromise = async () => {
+        const key = generatePdfKey(Number(pageNumber), combination, document);
+        const docxBlob = await renderDocumentPage(document, combination, Number(pageNumber));
+        const pdfBlob = await convertDocxToPdf(docxBlob);
+        result[key] = pdfBlob;
+
+        completedCombinations++;
+        const progress = (completedCombinations / totalCombinations) * 100;
+        onProgress(progress);
+      };
+
+      conversionPromises.push(conversionPromise());
     }
   }
 
+  await Promise.all(conversionPromises);
   return result;
-};
+}
 
 export const generatePdfKey = (
   pageNumber: number,

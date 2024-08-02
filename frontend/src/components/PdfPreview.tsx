@@ -11,18 +11,20 @@ interface PdfPreviewProps {
 const PdfPreview: React.FC<PdfPreviewProps> = ({ iframeSrc, defaultSrc, variationsGenerated, pageNumber }) => {
     const currentSrc = variationsGenerated ? iframeSrc : defaultSrc;
     const hideNavSrc = currentSrc ? `${currentSrc}#toolbar=0&navpanes=0` : '';
+    // const hideNavSrc = currentSrc //? `${currentSrc}#toolbar=0&navpanes=0` : '';
   
     return (
       <div className="pdf-preview">
-        <div className="pdf-title" style={{
+        {/* <div className="pdf-title" style={{
         textAlign: 'center',
         padding: '10px',
         backgroundColor: '#f0f0f0',
         borderBottom: '1px solid #ddd',
-        fontWeight: 'bold'
+        fontWeight: 'bold',
+        borderRadius: '10px'
          }}>
-            Page {pageNumber}
-        </div>
+            {variationsGenerated && `Page ${pageNumber}`}
+        </div> */}
         {currentSrc ? (
           <iframe
             src={hideNavSrc}
@@ -32,7 +34,7 @@ const PdfPreview: React.FC<PdfPreviewProps> = ({ iframeSrc, defaultSrc, variatio
             title="PDF Preview"
           />
         ) : (
-          <div>No PDF to display</div>
+          <div style={{ textAlign: 'center', padding: '10px', fontSize: '20px', color: '#888' }}>Start by selecting a report type</div>
         )}
       </div>
     );
