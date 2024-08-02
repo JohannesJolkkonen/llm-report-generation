@@ -10,7 +10,7 @@ You will need API Keys for [OpenAI](https://openai.com/), [Groq](https://groq.co
 !IMPORTANT!
 
 DocxTemplater, which is the JS-library for generating docx files, is a freemium library. 
-The chart-module used in page 5 is only available in the paid version, and has been commented out in this project
+The chart-module used in page 5 is only available in the **paid version**, and has been commented out in this project
 
 ## Project Structure
 
