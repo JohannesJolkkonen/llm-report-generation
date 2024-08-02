@@ -16,6 +16,9 @@ qdrant-client = "^1.9.1"
 hubspot-api-client = "^9.0.0"
 requests = "^2.32.3"
 pandas = "^2.2.2"
+anthropic = "^0.31.2"
+sse-starlette = "^2.1.2"
+psycopg2 = "^2.9.9"
 
 
 [build-system]
